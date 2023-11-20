@@ -72,7 +72,6 @@ def process_data(spark, file_input, output):
         col("title"),
         col("popularity"),
         col("release_date"),
-        col("revenue"),
         col("vote_count"),
         col("vote_average")
     )
@@ -91,7 +90,7 @@ def process_data(spark, file_input, output):
 
 def main():
     """
-    This is the main thread that create the Spark instance (Session), reads AWS credentials and calls process_data.
+    This is the main thread that create the Spark instance (Session) and calls process_data.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str, help="HDFS input", default="/source")
