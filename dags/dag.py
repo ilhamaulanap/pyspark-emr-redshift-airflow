@@ -304,6 +304,6 @@ end_data_pipeline = DummyOperator(task_id="end_data_pipeline", dag=dag)
 
 
 start_operator >> create_tables
-create_tables >> create_emr_cluster >> step_adder >> step_checker >> step_checker >> terminate_emr_cluster
+create_tables >> create_emr_cluster >> step_adder >> step_checker >> terminate_emr_cluster
 terminate_emr_cluster >> [stage_rating_to_dwh, stage_movies_to_dwh, stage_genre_to_dwh, stage_date_to_dwh, stage_budgetrevenue_to_dwh]
 [stage_rating_to_dwh, stage_movies_to_dwh, stage_genre_to_dwh, stage_date_to_dwh, stage_budgetrevenue_to_dwh] >> end_data_pipeline
